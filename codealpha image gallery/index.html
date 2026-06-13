@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 style="font-family:Georgia, 'Times New Roman', Times, serif ;">Image Gallery</h1>
+    <h3>Explore the world🌍</h3>
+    <nav>
+        <ul>
+            <li onclick="filterImages('all')">All |</li>
+            <li onclick="filterImages('beach')">Beaches |</li>
+            <li onclick="filterImages('mountain')">Mountains |</li>
+            <li onclick="filterImages('waterfall')">Waterfall |</li>
+        </ul>
+    </nav>
+
+    <div class="gallery">
+       <div id="lightbox">
+    <span onclick="closeImage()">&times;</span>
+    <img id="lightbox-img">
+</div>
+          <div class="container beach">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2" alt="Goa Beach"
+                onclick="openImage(this.src),'beautiful beach'">
+            <h2>Goa Beach</h2>
+            <p>A perfect destination to relax, enjoy the ocean breeze, and explore water activities.</p>
+        </div>
+        <div class="container mountain">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&auto=format&fit=crop"
+                alt="Mountain" onclick="openImage(this.src),'Amazing waterfall'">
+            <h2>Mountain</h2>
+            <p>A scenic mountain landscape offering fresh air and stunning natural beauty.</p>
+        </div>
+        <div class="container waterfall">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Waterfall"
+                onclick="openImage(this.src),'Amazing waterfall'">
+            <h2>Waterfall</h2>
+            <p>A magnificent waterfall surrounded by lush greenery and natural beauty.</p>
+        </div>
+        <div class="container beach">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach"
+                onclick="openImage(this.src),'Mesmerizinng beach'">
+            <h2>Beach</h2>
+            <p>A peaceful beach with golden sand, clear blue water.</p>
+        </div>
+        <div class="container mountain">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="Mountain"
+                onclick="openImage(this.src),'Beautiful Mountain'">
+            <h2>Snow Mountain</h2>
+            <p>Snow-covered peaks that attract adventure seekers and nature lovers.</p>
+        </div>
+        <div class=" container mountain">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop"
+                alt="Mountain" onclick="openImage(this.src),'Amazing Mountain'">
+            <h2>Mountain</h2>
+            <p>A vibrant city filled with modern architecture, lights, and culture</p>
+        </div>
+        <div class="container waterfall">
+            <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=600&auto=format&fit=crop"
+                alt="Waterfall" onclick="openImage(this.src),'Refreshing waterfall'">
+            <h2>Waterfalls</h2>
+            <p>An ideal place to enjoy the soothing sounds of cascading water.</p>
+        </div>
+        <div class="container mountain">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&auto=format&fit=crop"
+                alt="forests" onclick="openImage(this.src),'Snowy Mountain'">
+            <h2>Mountain</h2>
+            <p>A dense green forest filled with diverse wildlife and natural beauty</p>
+        </div>
+    </div>
+</body>
+<script>
+    function filterImages(category) {
+
+        const cards = document.querySelectorAll('.gallery .container');
+
+        cards.forEach(card => {
+
+            if (category === 'all' || card.classList.contains(category)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+
+        });
+
+    }
+    function openImage(src){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeImage(){
+    document.getElementById("lightbox").style.display = "none";
+}
+
+
+</script>
+
+</html>
